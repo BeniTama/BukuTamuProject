@@ -25,16 +25,17 @@
                                     <th>Keperluan dgn.</th>
                                     <th>Foto</th>
                                 </tr>
+                                <?php $no = 1; ?>
                                 <?php foreach ($tamu as $t) : ?>
                                     <tr>
-                                        <td><?= $t->id; ?></td>
+                                        <td><?= $no++; ?></td>
                                         <td><?= $t->nik; ?></td>
                                         <td><?= $t->nama; ?></td>
                                         <td><?= $t->pekerjaan; ?></td>
                                         <td><?= $t->alamat; ?></td>
                                         <td><?= $t->no_telp; ?></td>
                                         <td><?= $t->keperluan; ?></td>
-                                        <td><?= $t->foto; ?></td>
+                                        <td><img src="<?= base_url() . 'assets/assets/img/' . $t->foto; ?>" width="75px"></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
