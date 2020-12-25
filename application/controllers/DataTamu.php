@@ -2,6 +2,16 @@
 
 class DataTamu extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('username') == NULL) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Halaman hanya dapat diakses admin!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            redirect('Welcome');
+        }
+    }
+
     public function index()
     {
         $data['title'] = "Tabel Buku Tamu";
@@ -81,6 +91,7 @@ class DataTamu extends CI_Controller
         );
 
         $this->BukuTamuModel->insert_data($data, 'data_tamu');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Data berhasil ditambahkan</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('DataTamu');
     }
 }

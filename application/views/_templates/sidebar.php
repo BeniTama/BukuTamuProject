@@ -12,7 +12,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg nav-link-user">
                             <img alt="image" src="<?= base_url('assets/') ?>assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                            <div class="d-sm-none d-lg-inline-block">Hi, <?= $this->session->userdata('username'); ?></div>
                         </a>
                     </li>
                 </ul>
@@ -28,7 +28,7 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
                         <li><a class="nav-link" href="<?= base_url('DataTamu') ?>"><i class="fas fa-book-open"></i> <span>Buku Tamu</span></a></li>
-                        <li><a class="nav-link" href="<?= base_url('Welcome') ?>"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+                        <li><a class="nav-link" href="<?= base_url('Welcome/Logout') ?>"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
                     </ul>
                 </aside>
             </div>
