@@ -7,7 +7,7 @@
                         <div class="login-brand">
                             <h1>BUKU TAMU</h1>
                         </div>
-
+                        <?= $this->session->flashdata('pesan'); ?>
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4>Login</h4>
@@ -17,9 +17,10 @@
                                 <form method="POST" action="<?= base_url('Welcome') ?>" class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="email">Username</label>
-                                        <input id="email" type="email" class="form-control" name="username" tabindex="1" required autofocus>
+                                        <input id="email" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                                        <?= form_error('username', '<div class="invalid-feedback"></div>'); ?>
                                         <div class="invalid-feedback">
-                                            Masukkan Username anda disini
+                                            Masukkan Username
                                         </div>
                                     </div>
 
@@ -28,8 +29,9 @@
                                             <label for="password" class="control-label">Password</label>
                                         </div>
                                         <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                        <?= form_error('password', '<div class="invalid-feedback"></div>'); ?>
                                         <div class="invalid-feedback">
-                                            Masukkan password anda disini
+                                            Masukkan Password
                                         </div>
                                     </div>
 

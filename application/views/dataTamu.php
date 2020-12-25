@@ -6,6 +6,8 @@
         </div>
 
         <div class="section-body">
+
+            <?= $this->session->flashdata('pesan'); ?>
             <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahTamu">
                 <i class="fas fa-plus"></i>
                 Tambah Data

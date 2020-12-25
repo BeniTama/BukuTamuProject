@@ -12,6 +12,7 @@
                             <h4>Masukkan Data Baru</h4>
                         </div>
                         <div class="card-body">
+                            <?= $this->session->flashdata('pesan'); ?>
                             <form method="POST" action="<?= base_url('DataTamu/tambahDataBaru_action'); ?>" enctype="multipart/form-data">
                                 <?php foreach ($tamu as $t) : ?>
                                     <div class="form-group">
