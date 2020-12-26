@@ -19,18 +19,22 @@
                                         <label>NIK</label>
                                         <input type="text" class="form-control" value="<?= $t->nik; ?>" disabled>
                                         <input type="hidden" name="nik" class="form-control" value="<?= $t->nik; ?>">
+                                        <?= form_error('nik', '<div class="text-small text-danger"></div>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Nama</label>
                                         <input type="text" name="nama" class="form-control" value="<?= $t->nama; ?>">
+                                        <?= form_error('nama', '<div class="text-small text-danger"></div>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Pekerjaan</label>
                                         <input type="text" name="pekerjaan" class="form-control" value="<?= $t->pekerjaan; ?>">
+                                        <?= form_error('pekerjaan', '<div class="text-small text-danger"></div>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Alamat</label>
                                         <textarea name="alamat" class="form-control" rows="4" cols="50"><?= $t->alamat; ?></textarea>
+                                        <?= form_error('alamat', '<div class="text-small text-danger"></div>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Nomor Telepon</label>
@@ -42,6 +46,7 @@
                                             </div>
                                             <input name="no_telp" type="text" class="form-control phone-number" value="<?= $t->no_telp; ?>">
                                         </div>
+                                        <?= form_error('no_telp', '<div class="text-small text-danger"></div>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Keperluan Dengan</label>

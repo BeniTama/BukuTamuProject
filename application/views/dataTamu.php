@@ -64,6 +64,7 @@
                     <div class="form-group">
                         <label>Masukkan NIK</label>
                         <input type="text" name="nik" class="form-control">
+                        <?= form_error('nik', '<div class="text-small text-danger"></div>'); ?>
                     </div>
                 </div>
                 <div class="modal-footer">

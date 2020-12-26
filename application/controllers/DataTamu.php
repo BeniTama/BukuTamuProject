@@ -60,38 +60,54 @@ class DataTamu extends CI_Controller
 
     public function tambahDataBaru_action()
     {
-        $nik = $this->input->post('nik');
-        $nama = $this->input->post('nama');
-        $pekerjaan = $this->input->post('pekerjaan');
-        $alamat = $this->input->post('alamat');
-        $no_telp = $this->input->post('no_telp');
-        $keperluan = $this->input->post('keperluan');
-        $foto = $_FILES['foto']['name'];
-        if ($foto = '') {
+        $this->_rules();
+
+        if ($this->form_validation->run() == false) {
+            $this->tambahData();
         } else {
-            $config['upload_path'] = './assets/assets/img';
-            $config['allowed_types'] = 'jpg|jpeg|png|tiff';
-            $this->load->library('upload', $config);
-
-            if (!$this->upload->do_upload('foto')) {
-                echo "Foto Gagal diupload!";
+            $nik = $this->input->post('nik');
+            $nama = $this->input->post('nama');
+            $pekerjaan = $this->input->post('pekerjaan');
+            $alamat = $this->input->post('alamat');
+            $no_telp = $this->input->post('no_telp');
+            $keperluan = $this->input->post('keperluan');
+            $foto = $_FILES['foto']['name'];
+            if ($foto = '') {
             } else {
-                $foto = $this->upload->data('file_name');
+                $config['upload_path'] = './assets/assets/img';
+                $config['allowed_types'] = 'jpg|jpeg|png|tiff';
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('foto')) {
+                    echo "Foto Gagal diupload!";
+                } else {
+                    $foto = $this->upload->data('file_name');
+                }
             }
+
+            $data = array(
+                'nik' => $nik,
+                'nama' => $nama,
+                'pekerjaan' => $pekerjaan,
+                'alamat' => $alamat,
+                'no_telp' => $no_telp,
+                'keperluan' => $keperluan,
+                'foto' => $foto
+            );
+
+            $this->BukuTamuModel->insert_data($data, 'data_tamu');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Data berhasil ditambahkan</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            redirect('DataTamu');
         }
+    }
 
-        $data = array(
-            'nik' => $nik,
-            'nama' => $nama,
-            'pekerjaan' => $pekerjaan,
-            'alamat' => $alamat,
-            'no_telp' => $no_telp,
-            'keperluan' => $keperluan,
-            'foto' => $foto
-        );
-
-        $this->BukuTamuModel->insert_data($data, 'data_tamu');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Data berhasil ditambahkan</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('DataTamu');
+    public function _rules()
+    {
+        $this->form_validation->set_rules('nik', 'NIK', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('no_telp', 'No. Telp', 'required');
+        $this->form_validation->set_rules('Keperluan', 'Keperluan Dgn.', 'required');
     }
 }

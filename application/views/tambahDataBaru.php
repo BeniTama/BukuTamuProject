@@ -17,18 +17,22 @@
                                     <label>NIK</label>
                                     <input type="text" class="form-control" value="<?= $nik; ?>" disabled>
                                     <input type="hidden" name="nik" class="form-control" value="<?= $nik; ?>">
+                                    <?= form_error('nik', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
                                     <input type="text" name="nama" class="form-control">
+                                    <?= form_error('nama', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Pekerjaan</label>
                                     <input type="text" name="pekerjaan" class="form-control">
+                                    <?= form_error('pekerjaan', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
                                     <textarea name="alamat" class="form-control" rows="4" cols="50"></textarea>
+                                    <?= form_error('alamat', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor Telepon</label>
@@ -40,6 +44,7 @@
                                         </div>
                                         <input name="no_telp" type="text" class="form-control phone-number">
                                     </div>
+                                    <?= form_error('no_telp', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Keperluan Dengan</label>
@@ -49,6 +54,7 @@
                                             <option value="<?= $p->nama; ?>"><?= $p->nama; ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <?= form_error('keperluan', '<div class="text-small text-danger"></div>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label>Photo</label>
