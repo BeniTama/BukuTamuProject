@@ -3,7 +3,7 @@
 Ini adalah sebuah aplikasi buku tamu berbasis web, yang berfungsi merekam data diri dari tamu yang mengunjungi sebuah perusahaan untuk menemui seorang pegawai dalam perusahaan tersebut.
 Berikut adalah fitur-fitur yang tersedia didalam aplikasi ini.
 
-Saat user pertama kali membuka aplikasi ini, aplikasi ini akan menampilkan halaman login. Untuk menggunakan aplikasi ini lebih jauh, seorang user pertama kali harus terlebih dahulu memasukkan kombinasi username dan password yang dimiliki masing-masing pegawai.
+Saat user pertama kali membuka aplikasi ini, aplikasi ini akan menampilkan halaman login. Untuk menggunakan aplikasi ini lebih jauh, seorang user pertama kali harus terlebih dahulu memasukkan kombinasi username dan password yang dimiliki masing-masing pegawai. (contoh user: admin, password : 1234)
 
 ![Gambar Login Page](https://github.com/BeniTama/BukuTamuProject/blob/master/img-docs/01_login.JPG)
 
